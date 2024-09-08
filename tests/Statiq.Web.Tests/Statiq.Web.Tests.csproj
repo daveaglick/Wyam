@@ -1,11 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
+    <PackageReference Include="System.Collections.Immutable" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Statiq.Web\Statiq.Web.csproj" />
   </ItemGroup>
-
   <Choose>
     <When Condition=" '$(StatiqFrameworkVersion)' == ''">
       <ItemGroup>
@@ -19,9 +18,10 @@
       </ItemGroup>
     </Otherwise>
   </Choose>
-
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
     <DefineConstants>Is_Windows</DefineConstants>
   </PropertyGroup>
-
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
 </Project>

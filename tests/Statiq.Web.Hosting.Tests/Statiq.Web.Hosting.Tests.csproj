@@ -1,6 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningsNotAsErrors>NU1901;NU1902;NU1903;NU1904;CA1724;CA1062</WarningsNotAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningsNotAsErrors>NU1901;NU1902;NU1903;NU1904;CA1724;CA1062</WarningsNotAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="index.html" />
@@ -15,7 +22,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="3.0.0" />  <!-- Required for GenerateEmbeddedFilesManifest task -->
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="3.0.0" />
+    <!-- Required for GenerateEmbeddedFilesManifest task -->
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="wwwroot\BasicHtmlDocument.html" />
@@ -23,7 +31,6 @@
     <EmbeddedResource Include="wwwroot\BasicHtmlDocumentNoHtml.html" />
     <EmbeddedResource Include="wwwroot\NonHtmlDocument.css" />
   </ItemGroup>
-
   <Choose>
     <When Condition=" '$(StatiqFrameworkVersion)' == ''">
       <ItemGroup>
@@ -37,5 +44,4 @@
       </ItemGroup>
     </Otherwise>
   </Choose>
-
 </Project>

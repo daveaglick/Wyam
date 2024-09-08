@@ -3,6 +3,7 @@
     <Description>Statiq is a configurable static content generation framework. This library contains a server for use with static sites.</Description>
     <PackageTags>Statiq Static StaticContent StaticSite Blog BlogEngine Hosting WebHost</PackageTags>
     <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="LiveReload\livereload.js" />
@@ -23,7 +24,6 @@
       <_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
-
   <Choose>
     <When Condition=" '$(StatiqFrameworkVersion)' == ''">
       <ItemGroup>
@@ -36,5 +36,4 @@
       </ItemGroup>
     </Otherwise>
   </Choose>
-
 </Project>

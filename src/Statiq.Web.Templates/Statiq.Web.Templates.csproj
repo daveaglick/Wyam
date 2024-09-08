@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <PackageType>Template</PackageType>
     <PackageId>Statiq.Web.Templates</PackageId>
@@ -7,20 +6,18 @@
     <Authors>Dave Glick</Authors>
     <Description>Templates to use when creating a Statiq Web application, Statiq Web is a flexible static site generator.</Description>
     <PackageTags>dotnet-new;templates;Statiq;Static;StaticContent;StaticSite;Blog;BlogEngine </PackageTags>
-
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <IncludeSymbols>false</IncludeSymbols>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
     <ContentTargetFolders>content</ContentTargetFolders>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\.vs\**" />
     <Compile Remove="**\*" />
   </ItemGroup>
-
   <Target Name="VersionBuild" BeforeTargets="PrepareForBuild">
-   <XmlPoke XmlInputPath="templates\statiq-web\Statiq.Web.Template.csproj" Query="Project/ItemGroup/PackageReference/@Version" Value="$(Version)" />
+    <XmlPoke XmlInputPath="templates\statiq-web\Statiq.Web.Template.csproj" Query="Project/ItemGroup/PackageReference/@Version" Value="$(Version)" />
   </Target>
 </Project>
